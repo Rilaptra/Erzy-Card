@@ -59,7 +59,7 @@
           </div>
         </form>
         <div class="popup">
-          <h2>Message sent!&nbsp;<i data-feather="check"></i></h2>
+          <h2>Message sent!&nbsp;<i data-feather="check-circle"></i></h2>
           <button><i data-feather="x"></i></button> 
         </div>
       </div>
@@ -87,6 +87,7 @@
         });
 
       const popup = document.querySelector('.popup')
+      const popupH2 = document.querySelector('.popup h2')
       const form = document.getElementById("form");
       const name = document.getElementById("name");
       const sosmed = document.getElementById("sosmed");
@@ -140,17 +141,21 @@
                 popup.classList.remove(popup.classList[1])
               }, 5000)
             } else {
+              popupH2.innerHTML = 'Message failed to send&nbsp;<i data-feather="alert-triangle"></i>'
               popup.classList.add('fail')
 
               setTimeout(function(){
                 popup.classList.remove(popup.classList[1])
+                popupH2.innerHTML = 'Message sent!&nbsp;<i data-feather="check-circle"></i>'
               }, 5000)              
             }
           })
           .catch((error) => {
+            popupH2.innerHTML = 'Message failed to send&nbsp;<i data-feather="alert-triangle"></i>'
             popup.classList.add('fail')  
               setTimeout(function(){
                 popup.classList.remove(popup.classList[1])
+                popupH2.innerHTML = 'Message sent!&nbsp;<i data-feather="check-circle"></i>'
               }, 5000)            
             console.error("Terjadi kesalahan:", error);
           });
