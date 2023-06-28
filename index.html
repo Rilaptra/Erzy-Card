@@ -30,11 +30,11 @@
 
       <!-- Sosmed Button -->
       <div class="sosmed">
-        <a href="#"
+        <a href="https://discord.gg/Wy4XYcTcSP"
           ><span>Discord</span> <i data-feather="message-square"></i
         ></a>
-        <a href="#"><span>Instagram</span> <i data-feather="instagram"></i></a>
-        <a href="#"><span>Youtube</span> <i data-feather="youtube"></i></a>
+        <a href="https://www.instagram.com/rzq.lasv/"><span>Instagram</span> <i data-feather="instagram"></i></a>
+        <a href="https://youtube.com/@xrzu7284"><span>Youtube</span> <i data-feather="youtube"></i></a>
       </div>
       <!-- Sosmed Button End-->
 
@@ -135,12 +135,23 @@
               name.value = "";
               sosmed.value = "";
               msg.value = "";
+
+              setTimeout(function(){
+                popup.classList.remove(popup.classList[1])
+              }, 5000)
             } else {
-              popup.classList.add('fail')              
+              popup.classList.add('fail')
+
+              setTimeout(function(){
+                popup.classList.remove(popup.classList[1])
+              }, 5000)              
             }
           })
           .catch((error) => {
-            popup.classList.add('fail')              
+            popup.classList.add('fail')  
+              setTimeout(function(){
+                popup.classList.remove(popup.classList[1])
+              }, 5000)            
             console.error("Terjadi kesalahan:", error);
           });
       });
