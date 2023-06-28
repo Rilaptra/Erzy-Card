@@ -1,0 +1,514 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-style: normal;
+  text-decoration: none;
+  list-style: none;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  background-color: black;
+  align-items: center;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+.bgimg {
+  position: fixed;
+  inset: 0;
+  z-index: -9999;
+  opacity: 0.7;
+  background-image: url("assetss/bg.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.main {
+  width: 90%;
+  margin-top: 10rem;
+  background-color: rgba(255, 255, 255, 0.1);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 2rem;
+  animation: main 1.5s forwards;
+  transform-origin: top center;
+  border: solid 1px rgba(255, 255, 255, 0);
+  transition: all 0.2s ease-in-out;
+  backdrop-filter: blur(2px);
+  box-shadow: 20px 20px 50px rgba(0, 0, 0, 0.5);
+  border-left: 1px solid rgba(255, 255, 255, 0.322);
+  border-top: 1px solid rgba(255, 255, 255, 0.322);
+}
+
+.main:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  border: solid 1px white;
+}
+
+.main .profile {
+  display: flex;
+  flex-direction: column;
+  margin: 20px 0;
+  align-items: center;
+}
+
+.main .profile .border {
+  display: flex;
+  position: relative;
+  background-color: rgba(255, 255, 255, 0);
+  justify-content: center;
+  align-items: center;
+  width: 12.4rem;
+  height: 12.4rem;
+  margin-top: -100px;
+  border-radius: 50%;
+  animation: pp 2s forwards;
+  overflow: hidden;
+}
+
+.main .profile .border::before {
+  content: "";
+  border-radius: inherit;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image: conic-gradient(
+    transparent,
+    transparent,
+    transparent,
+    #8500a7,
+    #ff0000
+  );
+  animation: border 4s linear infinite;
+}
+
+.main .profile .border::after {
+  content: "";
+  border-radius: inherit;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image: conic-gradient(
+    transparent,
+    transparent,
+    transparent,
+    #8500a7,
+    #ff0000
+  );
+  animation: border 4s linear infinite;
+  animation-delay: -2s;
+}
+
+.main .profile span {
+  background-image: url("assetss/pp.png");
+  position: absolute;
+  z-index: 1;
+  inset: 3.5px;
+  border-radius: inherit;
+  background-size: cover;
+  background-repeat: no-repeat;
+  animation: pp 2s forwards;
+}
+
+.main .text {
+  color: white;
+  margin-top: 10px;
+  animation: start 1s forwards;
+  animation-delay: calc(var(--d) * 0.5s);
+}
+
+.main .sosmed {
+  display: flex;
+  justify-content: center;
+}
+
+.sosmed a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+  width: 10rem;
+  height: 3rem;
+  color: white;
+  border-radius: 2rem;
+  margin: 0.2rem 0.5rem;
+  font-size: 1rem;
+  border: solid 0.2px;
+  transition: all 0.2s ease-in-out;
+  position: relative;
+  overflow: hidden;
+}
+
+.sosmed a span {
+  position: absolute;
+  top: 23%;
+  left: 33%;
+}
+
+.sosmed a svg {
+  position: absolute;
+  width: 1.2rem;
+  height: 1.2rem;
+  left: 15px;
+}
+
+.sosmed a::before {
+  content: '';
+  width:10rem;
+  height:10rem;
+  position: absolute;
+  z-index: -1;
+  transition: all .3s ease-in-out;
+  opacity: .7;
+}
+
+.sosmed a:nth-child(1)::before {
+  background: linear-gradient(135deg, #3636f3, rgb(106, 106, 182));
+}
+
+.sosmed a:nth-child(2)::before {
+  background: linear-gradient(315deg, #ff5e00, #8500a7);
+}
+.sosmed a:nth-child(3)::before {
+  background: linear-gradient(135deg, rgb(255, 0, 0), rgb(221, 78, 78));
+}
+
+.sosmed a:hover::before {
+  transform: rotate(90deg);
+  opacity: 1;
+}
+
+.sosmed a:active {
+  transform: scale(0.9);
+}
+
+.sosmed a i {
+  margin-left: 10px;
+}
+
+/* Form Submit */
+
+.main .form {
+  margin: 3rem 1rem;
+  width: 85%;
+  background-color: rgba(255, 255, 255, 0.212);
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border-radius: 2rem;
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.322);
+  border-top: solid 1px rgba(255, 255, 255, 0.322);
+  border-left: solid 1px rgba(255, 255, 255, 0.322);
+  position: relative;
+}
+
+.form form {
+  width: 80%;
+  position: relative;
+}
+.form h2 {
+  color: white;
+  margin-bottom: 2rem;
+}
+
+.form .inbox {
+  position: relative;
+  width: 100%;
+  margin-bottom: 3rem;
+}
+
+.inbox input {
+  padding: 10px 0;
+  background: transparent;
+  position: relative;
+  width: 100%;
+  border: none;
+  border-bottom: 2px solid #999;
+  outline: none;
+  color: white;
+  font-size: 1rem;
+  letter-spacing: 0.15rem;
+}
+
+.inbox label {
+  position: absolute;
+  padding: 10px 0;
+  left: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.15rem;
+  color: #999;
+  pointer-events: none;
+}
+
+.inbox label span {
+  position: relative;
+  display: inline-flex;
+  letter-spacing: 0.05rem;
+  transition: 0.2s ease-in-out;
+}
+
+.inbox input:focus ~ label span,
+.inbox input:valid ~ label span {
+  color: white;
+  letter-spacing: 0.15rem;
+  transform: translateY(-20px);
+}
+
+.inbox input:focus,
+.inbox input:valid {
+  border-bottom: solid 2px white;
+}
+
+.inbox input[type="submit"] {
+  background-color: rgba(255, 255, 255, 0.781);
+  border: none;
+  color: #666;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 1.15rem;
+  text-transform: uppercase;
+  padding: 15px;
+  letter-spacing: 0.1rem;
+  transition: all 0.2s ease-in-out;
+}
+
+.inbox input[type="submit"]:hover {
+  letter-spacing: 0.35rem;
+}
+.inbox input[type="submit"]:active {
+  opacity: 0.8;
+}
+
+.popup {
+  display: none;
+}
+
+.popup h2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 1.3rem;
+  margin-bottom: 5px;
+  font-weight: 600;
+}
+
+.form .popup.success {
+  position: fixed;
+  top: 60%;
+  background-color: rgba(0, 255, 0, 0.479);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+  border-radius: 1rem;
+  animation: success 5s infinite linear;
+}
+
+.form .popup.fail {
+  position: fixed;
+  top: 60%;
+  background-color: rgba(255, 0, 0, 0.479);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+  border-radius: 1rem;
+  animation: success 5s infinite linear;
+}
+
+.form .popup::before {
+  content: '';
+  position: absolute;
+  width: 80%;
+  border-radius: 2px;
+  height: 2px;
+  background-color: white;
+  display: flex;
+  bottom: 7px;
+  animation: loadPopup 4.87s infinite linear;
+  transform-origin: left;
+}
+
+.form button {
+  background: transparent;
+  border: none;
+  color: white;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.form button svg {
+  width: 1.4rem;
+  height: 1.4rem;
+}
+
+.form button:hover {
+  background-color: rgba(255, 255, 255, 0.315);
+}
+footer {
+  flex-direction: column;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 5rem;
+  margin-top: 2rem;
+}
+
+footer p {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #bbb;
+  font-size: 0.8rem;
+  font-weight: 100;
+}
+
+footer p:nth-child(2) {
+  margin-top: 3px;
+  font-size: 0.7rem;
+}
+
+/* Keyframes Animation */
+
+@keyframes loadPopup {
+  0% {
+    transform: scaleX(0);
+  }
+  100% {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes success {
+  0% {
+    transform: scaleY(0);
+  }
+
+  5% {
+    transform: scaleY(1)
+  }
+
+  95% {
+    transform: scaleY(1)
+  }
+
+  100% {
+    transform: scaleY(0);
+  }
+}
+
+@keyframes pp {
+  0% {
+    transform: rotate(-180deg) scale(0);
+  }
+
+  100% {
+    transform: rotate(0deg) scale(1);
+  }
+}
+
+@keyframes border {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes start {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    trasnform: scale(1);
+  }
+}
+
+@keyframes main {
+  0% {
+    transform: scaleX(0) scaleY(0);
+  }
+
+  20% {
+    transform: scaleX(1) scaleY(0.1);
+  }
+
+  80% {
+    transform: scaleX(1) scaleY(1);
+  }
+}
+
+/* Media Queries */
+
+@media (max-width: 768px) {
+  html {
+    font-size: 82.5%;
+  }
+}
+
+@media (max-width: 620px) {
+  html {
+    font-size: 80%;
+  }
+
+  .sosmed a {
+    margin-bottom: 20px;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    position: relative;
+    overflow: visible;
+  }
+
+  .sosmed a::before {
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+  }
+
+  .sosmed a svg {
+    margin-left: -3px;
+    width: 50%;
+    height: 50%;
+    transition: all .2s ;
+  }
+
+  .sosmed a:nth-child(2) svg {
+    margin-left: -4px;
+  }
+
+  .sosmed a span {
+    display: flex;
+    opacity: 0;
+    position: absolute;
+    top: 70%;
+    left: auto;
+    transition: all 0.2s ease-in-out;
+    z-index: -1;
+  }
+
+  .sosmed a:hover svg {
+    width: 40%;
+    height: 40%;
+    margin-left: -1px;
+  }
+
+  .sosmed a:hover span {
+    opacity: 1;
+    transform: translateY(17px);
+  }
+}

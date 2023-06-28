@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portofolio</title>
+
+    <!-- Feather icon -->
+    <script src="https://unpkg.com/feather-icons"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="bgimg"></div>
+    <div class="header">
+      <header></header>
+    </div>
+
+    <!-- Main Container -->
+    <div class="main">
+      <!-- Profile Header -->
+      <div class="profile">
+        <div class="border"><span></span></div>
+        <p class="text" style="--d: 0">Name</p>
+        <h2 class="text" style="--d: 1">Erzy (Razu)</h2>
+      </div>
+      <!-- Profile Header End-->
+
+      <!-- Sosmed Button -->
+      <div class="sosmed">
+        <a href="#"
+          ><span>Discord</span> <i data-feather="message-square"></i
+        ></a>
+        <a href="#"><span>Instagram</span> <i data-feather="instagram"></i></a>
+        <a href="#"><span>Youtube</span> <i data-feather="youtube"></i></a>
+      </div>
+      <!-- Sosmed Button End-->
+
+      <!-- Form Section -->
+      <div class="form">
+        <h2>Anonymus Message</h2>
+        <form id="form">
+          <div class="inbox">
+            <input type="text" required id="name" />
+            <label>name</label>
+          </div>
+          <div class="inbox">
+            <input type="text" required id="sosmed" />
+            <label>social&nbsp;media</label>
+          </div>
+          <div class="inbox">
+            <input type="text" required id="msg" />
+            <label>message</label>
+          </div>
+          <div class="inbox">
+            <input type="submit" value="send to me!" />
+          </div>
+        </form>
+        <div class="popup">
+          <h2>Message sent!&nbsp;<i data-feather="check"></i></h2>
+          <button><i data-feather="x"></i></button> 
+        </div>
+      </div>
+      <!-- Form Section End -->
+    </div>
+    <!-- Main Container End -->
+
+    <!-- Footer -->
+    <footer>
+      <p>&copy; 2023 Erzy Studio. All rights reserved.</p>
+      <p>Last Updated On 28/06/2023</p>
+    </footer>
+
+    <script>
+      let inbox = document
+        .querySelectorAll("form .inbox label")
+        .forEach((label) => {
+          label.innerHTML = label.innerText
+            .split("")
+            .map(
+              (letters, i) =>
+                `<span style="transition-delay: ${i * 30}ms">${letters}</span>`
+            )
+            .join("");
+        });
+
+      const popup = document.querySelector('.popup')
+      const form = document.getElementById("form");
+      const name = document.getElementById("name");
+      const sosmed = document.getElementById("sosmed");
+      const msg = document.getElementById("msg");
+      const webhookURL =
+        "https://discord.com/api/webhooks/1123467505273409636/Bnfs8TaJ6AlPMJJ_ghMpRhySuuY4hBcJJLZfK10Ipjxq2bwDMqWPytAqJivibO_NuxAC";
+
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+
+        const data = {
+          username: "Anonymous",
+          embeds: [
+            {
+              color: 0x00ff00,
+              fields: [
+                {
+                  name: "Name",
+                  value: name.value,
+                  inline: true,
+                },
+                {
+                  name: "Social Media",
+                  value: sosmed.value,
+                  inline: true,
+                },
+                {
+                  name: "Message",
+                  value: msg.value,
+                },
+              ],
+            },
+          ],
+        };
+
+        fetch(webhookURL, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(data),
+        })
+          .then((response) => {
+            if (response.ok) {
+              popup.classList.add('success')
+              name.value = "";
+              sosmed.value = "";
+              msg.value = "";
+            } else {
+              popup.classList.add('fail')              
+            }
+          })
+          .catch((error) => {
+            popup.classList.add('fail')              
+            console.error("Terjadi kesalahan:", error);
+          });
+      });
+
+      const exit = document.querySelector('.popup button')
+
+      exit.addEventListener('click', e => {
+        popup.classList.remove(popup.classList[1])
+      })
+    </script>
+    <script>
+      feather.replace();
+    </script>
+  </body>
+</html>
