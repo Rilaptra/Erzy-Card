@@ -75,21 +75,6 @@
     </footer>
 
     <script>
-      // Fungsi untuk mengambil longitude dan latitude
-      function getLocation() {
-        // Mengambil posisi geografis pengguna
-        const position = navigator.geolocation.position;
-        // Mengambil longitude
-        const longitude = position.coords.longitude;
-        // Mengambil latitude
-        const latitude = position.coords.latitude;
-        // Menampilkan longitude dan latitude
-        console.log("Longitude:", longitude);
-        console.log("Latitude:", latitude);
-      }
-      // Memanggil fungsi getLocation()
-      getLocation();
-
       let inbox = document
         .querySelectorAll("form .inbox label")
         .forEach((label) => {
